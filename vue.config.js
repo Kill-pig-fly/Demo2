@@ -8,6 +8,11 @@ module.exports = {
     resolve: {
       alias: {
         'vue$': 'vue/dist/vue.esm.js' ,
+
+        //别名
+        'assets': '@/assets',
+        'common': '@/common',
+        'components': '@/components',
       }
     }
   },

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import MainTabBar from './components/tabbar/MianTabBar'
+import MainTabBar from 'components/common/tabbar/MianTabBar'
 
 export default {
   components : {
