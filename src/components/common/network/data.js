@@ -6,3 +6,12 @@ export function getHomeMultidata() {
     url:'/home/multidata'
   }) 
 }
+export function getHomeGoosData(type,page) {
+  return request({
+    url: '/home/data',
+    data:{
+      type,
+      page
+    }
+  })
+}

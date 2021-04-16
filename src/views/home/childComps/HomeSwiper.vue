@@ -1,9 +1,9 @@
 <template>
   <div>
     <swiper>
-      <swiper-item v-for="item in banners" :key="item">
+      <swiper-item v-for="(item,index) in banners" :key="index">
         <a :href="item.link">
-          <img :src="item.image" alt="">
+          <img :src="item.image" alt="" @load="imgRefresh">
         </a>
       </swiper-item>
     </swiper>
@@ -17,9 +17,7 @@ export default {
   props: {
     banners:{
       type:Array,
-      default() {
-        return []
-      }
+      default:()=>[]
     },
   },
   components: {
@@ -27,7 +25,9 @@ export default {
     SwiperItem
   },
   methods : {
-    
+    imgRefresh() {
+      this.$bus.$emit('imgRefresh');
+    }
   }
 }
 </script>

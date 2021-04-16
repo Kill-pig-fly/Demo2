@@ -1,8 +1,9 @@
 <template>
   <div class="scr">
-    <div v-for="item in recommends" :key="item" class="scr-item">
+    <div v-for="(item,index) in recommends" :key="index" class="scr-item">
       <a :href="item.link" >
-        <img :src="item.image" alt="">
+        <!-- <img :src="item.image" alt="" @load="imgRefresh"> 修改图片显示未懒加载,直接将':scr'改为‘v-lazy’-->
+        <img v-lazy="item.image" alt="" @load="imgRefresh"> 
         <div>{{item.title}}</div>
       </a>
     </div>
@@ -14,8 +15,18 @@
 
 export default {
   props: {
-    recommends:[]
-  }
+    recommends:{
+        type:Array,
+        default() {
+          return []
+        }
+      }
+  },
+  methods: {
+    imgRefresh() {
+      this.$bus.$emit('imgRefresh');
+    },
+  },
 }
 </script>
 

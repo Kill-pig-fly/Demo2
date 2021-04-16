@@ -4,6 +4,7 @@ const Home = () => import('@/views/home/Home.vue')
 const Cart = () => import('@/views/cart/Cart.vue')
 const Category = () => import('@/views/category/Category.vue')
 const Profile = () => import('@/views/profile/Profile.vue')
+const Detail = () => import('@/views/home/Detail.vue')
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,10 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
+  },
+  {
+    path: '/detail',
+    component: Detail
   },
   
 ]
